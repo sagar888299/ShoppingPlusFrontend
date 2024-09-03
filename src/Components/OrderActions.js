@@ -6,7 +6,7 @@ export const fetchOrders = createAsyncThunk(
   'orders/fetchOrders',
   async (customerId, thunkAPI) => {
     try {
-      const response = await axios.get(`http://shoppingplusbackend-production.up.railway.app/api/orders/customer/${customerId}`);
+      const response = await axios.get(`https://shoppingplusbackend-production.up.railway.app/api/orders/customer/${customerId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -19,7 +19,7 @@ export const cancelOrder = createAsyncThunk(
   'orders/cancelOrder',
   async (orderId, thunkAPI) => {
     try {
-      const response = await axios.patch(`http://shoppingplusbackend-production.up.railway.app/api/orders/${orderId}/cancel`);
+      const response = await axios.patch(`https://shoppingplusbackend-production.up.railway.app/api/orders/${orderId}/cancel`);
       return response.data; // Return the updated order
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

@@ -6,7 +6,7 @@ export const updateCustomer = createAsyncThunk(
   'customers/updateCustomer',
   async ({ phoneNumber, customerData }, { rejectWithValue }) => {
     try {
-      const response = await axios.patch(`http://shoppingplusbackend-production.up.railway.app/api/customers/${phoneNumber}`, customerData);
+      const response = await axios.patch(`https://shoppingplusbackend-production.up.railway.app/api/customers/${phoneNumber}`, customerData);
       return response.data; // Return the updated customer data
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : 'An error occurred');
@@ -18,7 +18,7 @@ export const fetchCustomer = createAsyncThunk(
   'customers/fetchCustomer',
   async (phoneNumber, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`http://shoppingplusbackend-production.up.railway.app/api/customers/${phoneNumber}`);
+      const response = await axios.get(`https://shoppingplusbackend-production.up.railway.app/api/customers/${phoneNumber}`);
       return response.data; // Return the fetched customer data
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : 'An error occurred');
