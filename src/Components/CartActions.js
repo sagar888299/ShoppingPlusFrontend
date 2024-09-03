@@ -7,7 +7,7 @@ const addCartToBackend = createAsyncThunk(
   async ({ phoneNumber, orderId, quantity }, thunkAPI) => {
     try {
       // Adjust the endpoint based on your Spring Boot configuration
-      const response = await axios.post('http://localhost:4000/api/cart/add', {
+      const response = await axios.post('http://shoppingplusbackend-production.up.railway.app/api/cart/add', {
         phoneNumber,
         orderId,
         quantity
@@ -26,7 +26,7 @@ const getCartFromBackend = createAsyncThunk(
   'cart/getCartFromBackend',
   async ({ phoneNumber }, thunkAPI) => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/cart/get/${phoneNumber}`);
+      const response = await axios.get(`http://shoppingplusbackend-production.up.railway.app/api/cart/get/${phoneNumber}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || 'Error occurred');

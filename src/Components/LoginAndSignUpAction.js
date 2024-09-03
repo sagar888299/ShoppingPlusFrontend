@@ -6,7 +6,7 @@ const sendOtp = createAsyncThunk(
   'auth/sendOtp',
   async (phoneNumber, thunkAPI) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/otp/send', { phoneNumber });
+      const response = await axios.post('http://shoppingplusbackend-production.up.railway.app/api/otp/send', { phoneNumber });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -19,7 +19,7 @@ const verifyOtp = createAsyncThunk(
   'auth/verifyOtp',
   async ({ phoneNumber, otp, name }, thunkAPI) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/otp/verify', { phoneNumber, otp, name });
+      const response = await axios.post('http://shoppingplusbackend-production.up.railway.app/api/otp/verify', { phoneNumber, otp, name });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
