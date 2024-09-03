@@ -12,26 +12,47 @@ const Carousel = () => {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Set autoplay speed (3 seconds)
     slidesToShow: 1,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // For large screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // For medium screens (tablets)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // For small screens (mobile devices)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
-  const images = [
-    banner2,
-    banner1,
-    banner3
-  ];
+  const images = [banner2, banner1, banner3];
 
   return (
     <div className='mx-2 overflow-x-hidden no-scrollbar'>
-      <div className="carousel-container mt-20" style={{ position: 'relative' }}>
+      <div className="carousel-container mt-28 lg:mt-20 md:mt-20" style={{ position: 'relative' }}>
         <Slider ref={sliderRef} {...settings}>
           {images.map((src, index) => (
             <div key={index}>
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className='object-cover h-fit '
+                className='lg:w-screen lg:h-screen ' // Adjust for different screen sizes
                 onError={(e) => e.target.src = 'https://via.placeholder.com/800x400?text=Image+Not+Found'}
               />
             </div>

@@ -94,7 +94,7 @@ export default function AuthForm({ handleCloseModal }) {
   };
 
   return (
-    <div className="h-96 w-96">
+    <div className="lg:h-96 lg:w-96 md:h-96 md:w-96 h-72 w-72">
       <div className="fixed inset-0 flex items-center justify-center bg-opacity-50">
         <div className="bg-white p-6 w-full max-w-md rounded-lg">
           <h3 className="text-xl font-semibold text-gray-900 underline mb-4">
